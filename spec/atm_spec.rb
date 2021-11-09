@@ -1,7 +1,12 @@
 require './lib/atm'
 
-describe Atm do
-  subject { Atm.new }
+RSpec.describe Atm do
+  # subject { Atm.new }
+  # subject do
+  #   described_class.new
+  # end
+  # subject = Atm.new
+
   let(:account) { instance_double('Account') }
 
   before do
@@ -27,6 +32,11 @@ describe Atm do
     expect { subject.withdraw 50, account }
       .to change { subject.funds }.from(1000).to(950)
   end
+
+  it {
+    expect { subject.withdraw 50, account }
+      .to change { subject.funds }.from(1000).to(950)
+  }
 
   it 'is expected to allow withdrawal if account has enough balance.' do
     # We need to tell the spec what to look for as the responce
