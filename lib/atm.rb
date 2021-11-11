@@ -3,7 +3,7 @@ class Atm
   attr_accessor :funds
 
   def initialize
-    @funds = 10000
+    @funds = 1000
   end
 
   # NOTE: that we will also change 'value' to 'amount'
